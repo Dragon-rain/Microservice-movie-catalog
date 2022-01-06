@@ -3,7 +3,8 @@ package io.javabrains.model;
 import java.util.List;
 
 public class UserRating {
-
+	
+	private String userId;
 	private List<Rating> usersRating;
 	
 	public UserRating() {
@@ -51,6 +52,14 @@ public class UserRating {
 	@Override
 	public String toString() {
 		return "UserRating [usersRating=" + usersRating + "]";
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	
 	

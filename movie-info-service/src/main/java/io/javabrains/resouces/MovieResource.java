@@ -1,5 +1,7 @@
 package io.javabrains.resouces;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,8 @@ import io.javabrains.model.MovieSummary;
 @RequestMapping("/movies")
 public class MovieResource {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(MovieResource.class);
+	
 	@Autowired
 	private RestTemplate restTemplate;
 	
@@ -24,7 +28,7 @@ public class MovieResource {
 	public Movie getMovie(@PathVariable String movieId) {
 		
 		MovieSummary movieSummary = restTemplate.getForObject("https://api.themoviedb.org/3/movie/"+movieId+"?api_key="+apiKey, MovieSummary.class);
-		
+		LOGGER.info("Movie found: {}", movieSummary);
 		return new Movie(movieId, movieSummary.getOverview(), movieSummary.getTitle());
 	}
 

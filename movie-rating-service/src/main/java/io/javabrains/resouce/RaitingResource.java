@@ -22,9 +22,9 @@ public class RaitingResource {
 	private UserRating getUserRaiting(@PathVariable String userId) {		// TODO Auto-generated method stub
 		
 		return new UserRating(Arrays.asList(
-				new Rating("1", 9),
-				new Rating("2", 8),
-				new Rating("3", 9)
+				new Rating("3", 9),
+				new Rating("8", 8),
+				new Rating("9", 9)
 		));
 	}
 	
